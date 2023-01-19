@@ -1,0 +1,57 @@
+﻿@page "/gallery"
+@inject HttpClient _client
+
+<h3>Gallery</h3>
+<h5>All of my current polymer clay earrings.</h5>
+
+@if (earrings is null)
+{
+        <div class="h6">Loading</div>
+}
+else
+{
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>imageUrl</th>
+                    <th>Name</th>
+                    <th>PartitionKey</th>
+                    <th>RowKey</th>
+                    <th>Price</th>
+                    <th>Description</th>
+                    <th>Colour</th>
+                    <th>Quantity (pairs)</th>
+                    <th>Materials</th>
+                    <th>Size</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var earring in earrings)
+            {
+                <tr>
+                    <td><img src="@earring.imageUrl" /></td>
+                    <td>@earring.name</td>
+                    <td>@earring.partitionKey</td>
+                    <td>@earring.rowKey</td>
+                    <td>@earring.price</td>
+                    <td>@earring.description</td>
+                    <td>@earring.colour</td>
+                    <td>@earring.quantityPairs</td>
+                    <td>@earring.materials</td>
+                    <td>@earring.size</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+}
+
+
+
+@code {
+    EarringModel[] earrings = null;
+
+    protected override async Task OnInitializedAsync()
+    {
+        earrings = await _client.GetFromJsonAsync<EarringModel[]>("EmilyLilyTable/");
+    }
+}
