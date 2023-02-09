@@ -6,45 +6,17 @@
 
 @if (earrings is null)
 {
-        <div class="h6">Loading</div>
+    <div class="h6">Loading</div>
 }
 else
 {
-        <table class="table table-striped">
-            <thead class="thead-dark">
-                <tr>
-                    <th>imageUrl</th>
-                    <th>Name</th>
-                    <th>PartitionKey</th>
-                    <th>RowKey</th>
-                    <th>Price</th>
-                    <th>Description</th>
-                    <th>Colour</th>
-                    <th>Quantity (pairs)</th>
-                    <th>Materials</th>
-                    <th>Size</th>
-                </tr>
-            </thead>
-            <tbody>
-            @foreach (var earring in earrings)
-            {
-                <tr>
-                    <td><img src="@earring.imageUrl" width="200" height="auto"/></td>
-                    <td>@earring.name</td>
-                    <td>@earring.partitionKey</td>
-                    <td>@earring.rowKey</td>
-                    <td>@earring.price</td>
-                    <td>@earring.description</td>
-                    <td>@earring.colour</td>
-                    <td>@earring.quantityPairs</td>
-                    <td>@earring.materials</td>
-                    <td>@earring.size</td>
-                </tr>
-            }
-            </tbody>
-        </table>
+    <div class="hat-columns">
+        @foreach (var earring in earrings)
+        {
+            <EarringUI Model="earring"></EarringUI>
+        }
+    </div>
 }
-
 
 
 @code {
@@ -52,6 +24,10 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        earrings = await _client.GetFromJsonAsync<EarringModel[]>("EmilyLilyTable/");
+        using (var request = new HttpRequestMessage(HttpMethod.Get, "https://emilylilywebshop.azurewebsites.net/api/EmilyLilyTable/"))
+        {
+            var response = await _client.SendAsync(request);
+            earrings = await response.Content.ReadFromJsonAsync<EarringModel[]>();
+        }
     }
 }

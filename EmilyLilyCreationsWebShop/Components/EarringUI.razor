@@ -1,0 +1,37 @@
+﻿<div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+	<div class="mainflip">
+		<div class="frontside">
+			<div class="card">
+				<img class="card-img-top img-fluid" loading="lazy" src="@Model.imageUrl" onerror="this.onerror=null;this.src='Replace this text?';this.alt='Hat image not found'" alt="earring image">
+				<div class="card-body">
+					<h4 class="card-title">@Model.name</h4>
+				</div>
+				<div class="card-footer text-muted text-right">
+					Price: @Model.price
+				</div>
+			</div>
+		</div>
+		<div class="backside">
+			<div class="card">
+				<div class="card-header">
+					@Model.name
+				</div>
+				<div class="card-body">
+					@* <h4 class="card-title">Card Title</h4> *@
+					<p class="card-text">@Model.description</p>
+					@* <a href="#" class="btn btn-info btn-md">Info Button</a> *@
+				</div>
+				@* <div class="card-footer">
+					This is a Footer
+				</div> *@
+			</div>
+		</div>
+	</div>
+</div>
+
+@code {
+
+	[Parameter]
+	public EarringModel Model { get; set; }
+
+}
