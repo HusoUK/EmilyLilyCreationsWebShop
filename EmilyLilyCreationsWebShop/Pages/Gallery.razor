@@ -24,7 +24,7 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        using (var request = new HttpRequestMessage(HttpMethod.Get, "https://emilylilywebshop.azurewebsites.net/api/EmilyLilyTable/"))
+        using (var request = new HttpRequestMessage(HttpMethod.Get, "EmilyLilyTable/"))
         {
             var response = await _client.SendAsync(request);
             earrings = await response.Content.ReadFromJsonAsync<EarringModel[]>();
