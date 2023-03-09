@@ -11,6 +11,6 @@ var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
-builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://emilylilywebshop.azurewebsites.net/api/") });
+builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(BaseApiUrl) });
 
 await builder.Build().RunAsync();
