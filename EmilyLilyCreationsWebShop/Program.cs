@@ -3,8 +3,8 @@ using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
 const string BaseImageUrl = "https://dalkeithgh.blob.core.windows.net/emilylilycreations/";
-string BaseApiUrl = Environment.GetEnvironmentVariable("API_url");
-string BaseBlobUrl = Environment.GetEnvironmentVariable("BlobStorage_url");
+string BaseApiUrl = Environment.GetEnvironmentVariable("WEBSITE_API_url");
+string BaseBlobUrl = Environment.GetEnvironmentVariable("WEBSITE_BlobStorage_url");
 
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
