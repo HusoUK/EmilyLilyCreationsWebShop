@@ -1,16 +1,26 @@
 ﻿@page "/gallery"
 @inject HttpClient _client
 
-<h3>Gallery</h3>
-<h5>All of my current polymer clay earrings.</h5>
+<div class="text-center">
+    <h3>Gallery</h3>
+    <h5>All of my current polymer clay earrings.</h5>
+</div>
 
 @if (earrings is null)
 {
-    <div class="h6">Loading</div>
+    <div class="text-center loading-amination container">
+        <div class="spinner-grow" style="width: 3rem; height: 3rem;" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+            <div class="loading-text">Loading</div>
+        <div class="spinner-grow" style="width: 3rem; height: 3rem;" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
 }
 else
 {
-    <div class="hat-columns">
+    <div class="gallery-columns px-4">
         @foreach (var earring in earrings)
         {
             <EarringUI Model="earring"></EarringUI>

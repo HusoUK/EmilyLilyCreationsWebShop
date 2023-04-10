@@ -1,0 +1,44 @@
+﻿@page "/contact"
+
+
+<div class="container">
+    <form class="row g-3">
+        <div class="col-md-6">
+            <label for="inputFirstName" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="inputFirstName" @bind="FirstName">
+        </div>
+        <div class="col-md-6">
+            <label for="inputLastName" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="inputLastName" @bind="LastName">
+        </div>
+        <div class="col-12 content">
+            <label for="inputEmail" class="form-label">E-mail</label>
+            <input type="email" class="form-control" id="inputEmail" placeholder="joebloggs@gmail.com" @bind="Email">
+        </div>
+        <div class="col-12 content">
+            <label for="inputMessage" class="form-label">Message</label>
+            <textarea class="form-control" id="inputMessage" placeholder="Any comments and questions are welcome, if you are interested in any specific items please provide the reference numbers" @bind="Message"></textarea>
+        </div>
+        <div class="col-12 content text-center">
+            <button type="button" class="btn btn-primary" @onclick="SubmitForm" >Submit</button>
+        </div>
+        <div>
+        @ContactFormInfo
+        </div>
+    </form>
+</div>
+
+@code {
+    private string FirstName { get; set; }
+    private string LastName { get; set; }
+    private string Email { get; set; }
+    private string Message { get; set; }
+    private string ContactFormInfo { get; set; }
+
+    private void SubmitForm()
+    {
+        //Just a demo method, to be replaced with one to forward the form details on via email.
+        ContactFormInfo = $"You have enter: {FirstName} {LastName}, {Email}, {Message}.";
+    }
+
+}

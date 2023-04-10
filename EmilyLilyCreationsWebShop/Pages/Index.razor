@@ -2,20 +2,52 @@
 
 <PageTitle>Home</PageTitle>
 
-<h1>Emily Lily Clay Creations</h1>
-<h4>Welcome to my new website</h4>
+<div id="mySlider" class="carousel slide content" data-bs-ride="carousel" data-bs-interval="2500">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <div class="row">
+                <div class="col-sm-4">
+                    <img src="https://dalkeithgh.blob.core.windows.net/emilylilycreations/Dangles1.jpg" class="carousel-images d-block w-100 small-screen-bottom-margin" alt="Image 1">
+                </div>
+                <div class="col-sm-4">
+                    <img src="https://dalkeithgh.blob.core.windows.net/emilylilycreations/Dangles3.jpg" class="carousel-images d-block w-100 small-screen-bottom-margin" alt="Image 2">
+                </div>
+                <div class="col-sm-4">
+                    <img src="https://dalkeithgh.blob.core.windows.net/emilylilycreations/ChristmasStuds3.jpg" class="carousel-images d-block w-100" alt="Image 3">
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="row">
+                <div class="col-sm-4">
+                    <img src="https://dalkeithgh.blob.core.windows.net/emilylilycreations/Earrings/image0.jpeg" class="carousel-images d-block w-100 small-screen-bottom-margin" alt="Image 4">
+                </div>
+                <div class="col-sm-4">
+                    <img src="https://dalkeithgh.blob.core.windows.net/emilylilycreations/Earrings/image1.jpeg" class="carousel-images d-block w-100 small-screen-bottom-margin" alt="Image 5">
+                </div>
+                <div class="col-sm-4">
+                    <img src="https://dalkeithgh.blob.core.windows.net/emilylilycreations/Earrings/image3.jpeg" class="carousel-images d-block w-100" alt="Image 6">
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#mySlider" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"><span class="carousel-control-prev-text">Previous</span></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#mySlider" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"><span class="carousel-control-next-text">Next</span></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+<div class="container text-center content">
+    <h1>Emily Lily Clay Creations</h1>
+    <h4>Welcome to my new website</h4>
+</div>
 
-<p>Api base address (test) :</p>
-<p>@BaseBlobUrl</p>
-<p>Image base address (test) :</p>
-<p>@BaseApiUrl</p>
 
 
-
-My website is currently under construction.
 
 @code {
-    string BaseBlobUrl = Environment.GetEnvironmentVariable("WEBSITE_BlobStorage_url");
-    string BaseApiUrl = Environment.GetEnvironmentVariable("WEBSITE_API_url");
 
 }

@@ -1,32 +1,20 @@
-﻿<div class="image-flip" ontouchstart="this.classList.toggle('hover');">
-	<div class="mainflip">
-		<div class="frontside">
-			<div class="card">
-				<img class="card-img-top img-fluid" loading="lazy" src="@Model.imageUrl" onerror="this.onerror=null;this.src='Replace this text?';this.alt='Hat image not found'" alt="earring image">
-				<div class="card-body">
-					<h4 class="card-title">@Model.name</h4>
-				</div>
-				<div class="card-footer text-muted text-right">
-					Price: @Model.price
-				</div>
-			</div>
-		</div>
-		<div class="backside">
-			<div class="card">
-				<div class="card-header">
-					@Model.name
-				</div>
-				<div class="card-body">
-					@* <h4 class="card-title">Card Title</h4> *@
-					<p class="card-text">@Model.description</p>
-					@* <a href="#" class="btn btn-info btn-md">Info Button</a> *@
-				</div>
-				@* <div class="card-footer">
-					This is a Footer
-				</div> *@
-			</div>
-		</div>
-	</div>
+﻿
+<div class="card text-center">
+  <img src="@Model.imageUrl" class="card-img-top" alt="@Model.name, earrings">
+  <div class="card-body">
+	<h5 class="card-title">@Model.name</h5>
+	<p class="card-text">@Model.description</p>
+  </div>
+  <ul class="list-group list-group-flush no-border-top-bottom">
+	<li class="list-group-item no-border-top-bottom">Materials: @Model.materials</li>
+	<li class="list-group-item no-border-top-bottom">Main colour: @Model.colour</li>
+	<li class="list-group-item no-border-top-bottom">Reference: <span class="easy-read-text">@Model.rowKey</span></li>
+	<li class="list-group-item no-border-top-bottom">Price: £@Model.price</li>
+  </ul>
+  <div class="card-body">
+	<a href="@Model.imageUrl" target="_blank" class="card-link">Large Image</a>
+	<p>(this will open a new tab)</p>
+  </div>
 </div>
 
 @code {
