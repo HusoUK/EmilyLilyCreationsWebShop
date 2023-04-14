@@ -2,7 +2,9 @@
 
 
 <div class="container">
-    <form class="row g-3">
+    <p>Please feel free to e-mail any questions to <a href="mailto:emilylilyclaycreations@gmail.com">emilylilyclaycreations@gmail.com</a>, use the below contact form or use Facebook via the link at the bottom of the page.</p>
+    <h4 class="mytop-padding">The below form is currently under construction, please get in touch via FaceBook messenger or the above email.</h4>
+    <form class="row g-3 mytop-padding">
         <div class="col-md-6">
             <label for="inputFirstName" class="form-label">First Name</label>
             <input type="text" class="form-control" id="inputFirstName" @bind="FirstName">
@@ -11,15 +13,15 @@
             <label for="inputLastName" class="form-label">Last Name</label>
             <input type="text" class="form-control" id="inputLastName" @bind="LastName">
         </div>
-        <div class="col-12 content">
+        <div class="col-12 mytop-padding">
             <label for="inputEmail" class="form-label">E-mail</label>
             <input type="email" class="form-control" id="inputEmail" placeholder="joebloggs@gmail.com" @bind="Email">
         </div>
-        <div class="col-12 content">
+        <div class="col-12 mytop-padding">
             <label for="inputMessage" class="form-label">Message</label>
             <textarea class="form-control" id="inputMessage" placeholder="Any comments and questions are welcome, if you are interested in any specific items please provide the reference numbers" @bind="Message"></textarea>
         </div>
-        <div class="col-12 content text-center">
+        <div class="col-12 mytop-padding text-center">
             <button type="button" class="btn btn-primary" @onclick="SubmitForm" >Submit</button>
         </div>
         <div>
@@ -38,7 +40,7 @@
     private void SubmitForm()
     {
         //Just a demo method, to be replaced with one to forward the form details on via email.
-        ContactFormInfo = $"You have enter: {FirstName} {LastName}, {Email}, {Message}.";
+        ContactFormInfo = $"You have entered: {FirstName} {LastName}, {Email}, {Message}.";
     }
 
 }
