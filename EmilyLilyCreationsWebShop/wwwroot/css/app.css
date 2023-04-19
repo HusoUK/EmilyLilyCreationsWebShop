@@ -1,9 +1,25 @@
 ﻿@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 
 html, body {
-    font-family: 'Pacifico', 'bradley hand', 'brush script mt', cursive;
+    font-family: 'Dongle', 'bradley hand', 'brush script mt', cursive;
     color: rgba(115, 115, 116, 1);
     background-color: rgba(249, 243, 241, 1);
+}
+
+.pacifico-font {
+    font-family: 'Pacifico', 'bradley hand', 'brush script mt', cursive;
+}
+
+.font-size-standard {
+    font-size: 30px;
+}
+
+.font-size-card {
+    font-size: 24px;
+}
+
+.font-size-card-large {
+    font-size: 30px;
 }
 
 h1:focus {
@@ -71,15 +87,19 @@ h1:focus {
     }
 
 .gallery-columns {
+    margin-left: 10%;
+    margin-right: 10%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .card {
-    width: 18rem;
-    margin: 10px;
-    border: 2px solid rgba(115, 115, 116, 1);
+    width: 23%;
+    margin: 1%;
+    border: 1px solid rgba(115, 115, 116, 1);
     border-radius: 15px;
 }
 
@@ -159,6 +179,10 @@ h1:focus {
 
 .accordion-item, .accordion-button {
     background-color: rgba(249, 243, 241, 1);
+}
+
+.accordion-item {
+    border: 2px solid rgba(115, 115, 116, 0.2);
 }
 
 .care-info {
