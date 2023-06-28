@@ -1,4 +1,6 @@
 ﻿@page "/contact"
+@inject EmailMessage _email
+@inject HttpClient _client
 
 
 <div class="container font-size-standard">
@@ -7,19 +9,19 @@
     <form class="row g-3 mytop-padding">
         <div class="col-md-6">
             <label for="inputFirstName" class="form-label">First Name</label>
-            <input type="text" class="form-control" id="inputFirstName" @bind="FirstName">
+            <input type="text" class="form-control" id="inputFirstName" @bind="_email.FirstName">
         </div>
         <div class="col-md-6">
             <label for="inputLastName" class="form-label">Last Name</label>
-            <input type="text" class="form-control" id="inputLastName" @bind="LastName">
+            <input type="text" class="form-control" id="inputLastName" @bind="_email.LastName">
         </div>
         <div class="col-12 mytop-padding">
             <label for="inputEmail" class="form-label">E-mail</label>
-            <input type="email" class="form-control" id="inputEmail" placeholder="joebloggs@gmail.com" @bind="Email">
+            <input type="email" class="form-control" id="inputEmail" placeholder="joebloggs@gmail.com" @bind="_email.Email">
         </div>
         <div class="col-12 mytop-padding">
             <label for="inputMessage" class="form-label">Message</label>
-            <textarea class="form-control" id="inputMessage" placeholder="Any comments and questions are welcome, if you are interested in any specific items please provide the reference numbers" @bind="Message"></textarea>
+            <textarea class="form-control" id="inputMessage" placeholder="Any comments and questions are welcome, if you are interested in any specific items please provide the reference numbers" @bind="_email.Message"></textarea>
         </div>
         <div class="col-12 mytop-padding text-center">
             <button type="button" class="btn btn-primary" @onclick="SubmitForm" >Submit</button>
@@ -31,16 +33,22 @@
 </div>
 
 @code {
-    private string FirstName { get; set; }
-    private string LastName { get; set; }
-    private string Email { get; set; }
-    private string Message { get; set; }
     private string ContactFormInfo { get; set; }
 
-    private void SubmitForm()
+    private async Task SubmitForm()
     {
-        //Just a demo method, to be replaced with one to forward the form details on via email.
-        ContactFormInfo = $"You have entered: {FirstName} {LastName}, {Email}, {Message}.";
-    }
+        using (_client)
+        {
+            var response = await _client.PostAsJsonAsync("Messenger/", _email);
 
+            if (response.IsSuccessStatusCode)
+            {
+                ContactFormInfo = $"{_email.FirstName} {_email.LastName}, thank you for getting in touch.";
+            }
+            else
+            {
+                ContactFormInfo = "Sorry your message was not sent.";
+            } 
+        }
+    }
 }

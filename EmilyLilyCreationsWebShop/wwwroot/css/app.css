@@ -103,6 +103,12 @@ h1:focus {
     border-radius: 15px;
 }
 
+@media screen and (max-width: 900px){
+    .card {
+        width: 100% !important; 
+    }
+}
+
 .card-img-top {
     border-radius: 15px;
     width: 90%;
