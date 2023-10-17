@@ -1,4 +1,4 @@
-# EmilyLilyCreationsWebShop
+# EmilyLilyCreationsWebSite
 
 A website project I created for my wife to display her hand-made jewelery creations.
 
