@@ -1,2 +1,5 @@
 # EmilyLilyCreationsWebShop
-An ongoing project for my wife, with the end goal of a web shop for her hand-made creations.
+
+A website project I created for my wife to display her hand-made jewelery creations.
+
+I would eventually like to create her a web shop, but may choose to do this in a difference framework and/ or language.
